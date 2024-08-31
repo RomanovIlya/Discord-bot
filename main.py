@@ -20,7 +20,7 @@ async def on_message(message):
 @bot.event
 async def on_command_error(ctx,error):
     if isinstance(error, commands.MemberNotFound):
-        channel=bot.get_channel(977545358978744332)
+        channel=bot.get_channel()#Channel ID
         await channel.send(embed = discord.Embed(title="❌Не получилось",description="Такого пользователя нету на это сервере", colour=discord.Color.green()))
     elif isinstance(error, commands.MissingPermissions):
         await ctx.send(embed = discord.Embed(title="❌Не получилось",description="Чел на это у тебя нет прав🙄, ты не админ", colour=discord.Color.green()))
