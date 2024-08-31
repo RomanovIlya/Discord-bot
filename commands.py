@@ -25,8 +25,8 @@ async def kick(ctx, member: discord.Member, *, reason=None):
 @bot.command()
 @commands.has_permissions(administrator=True)
 async def mute(ctx, user: discord.Member, time: int,*, reason):
-    role = user.guild.get_role(978321794446540831)
-    channel=bot.get_channel(977545358978744332)
+    role = user.guild.get_role()#Role ID
+    channel=bot.get_channel()#Chanel ID
     emb = discord.Embed( title = '✅Получилось', description=f"Пользователю {user} выдали мут!\nВремя пробывания в муте: {time} минут\nПричина выдачи мута: {reason}!", colour = discord.Color.green())
     emb.set_footer(text = 'Действие выполнено админом - ' + ctx.author.name)
 
@@ -40,7 +40,7 @@ async def mute(ctx, user: discord.Member, time: int,*, reason):
 @bot.command()
 @commands.has_permissions(administrator=True)
 async def ban(ctx, user: discord.Member, time: int,*, reason): 
-    channel=bot.get_channel(977545358978744332)
+    channel=bot.get_channel()#Chanel ID
     emb = discord.Embed( title = '✅Получилось', description=f"Пользователю {user} выдали бан!\nВремя пробывания в бане: {time} минут\nПричина выдачи бана: {reason}!", colour = discord.Color.green())
     emb.set_footer(text = 'Действие выполнено админом - ' + ctx.author.name)
     await channel.send(embed = emb)
